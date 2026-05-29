@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meals&Miles</title>
+        <link rel="stylesheet" href="style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <nav class="navbar">
+
+            <div class="nav-left">
+               <img src="../images/logo.png" alt="LOGO" class="logo">  
+            </div>
+
+            <div class="nav-center">
+                <h1 class="main-heading">Meals & Miles</h1>
+                <h2>A place where you can share your meal experiences and travel stories</h2>
+                <p>Get started by logging in to your account.</p>
+            </div>
+
+            <div class="nav-right" id= "navRight">
+                <a href="/home">Home</a>
+                <a href="/login">Login</a>
+                <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
+                           <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </nav>
+        <section class="main">
+            
+                     <h1>Register to get started</h1>
+                        <div class="container">
+                            
+                            <h2>Create an Account</h2>
+                            <h3>Please fill up this form to create an account</h3>
+                            <hr>
+                            <form id="signUpForm">
+                                
+                            <label for="username"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="username" id="username" required>
+                                
+                            <label for="email"><b>Email</b></label>
+                            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+                            
+                            <div class="input-group">
+                            <label for="password"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                            <small id="passwordError"></small>
+                            </div>
+                            <div class="input-group">
+                            <label for="confirmPassword"><b> Confirm Password</b></label>
+                            <input type="password" placeholder="Confirm password" name="confirmPassword" id="confirmPassword" required>
+                            <small id="confirmError"></small>
+                            </div>
+                            
+                            <hr>
+                            
+                            <button type="submit" class="Registerbtn"> Register </button>
+                                      
+                        </form>
+                        </div>
+                        
+                     <!--Registration-form-->
+
+        </section>
+       <footer class="footer">
+             <div class="social-icons">
+                 <a href="https://www.facebook.com/mealsandmiles">
+                 <i class="fab fa-facebook"></i>
+                 </a>
+                 
+                 <a href="https://www.instagram.com/_meals_and_miles/">
+                 <i class="fab fa-instagram"></i>
+                 </a>
+                 <a href="mailto:info@mealsandmiles.com" target="_blank">
+                 <i class="fas fa-envelope"></i>
+                 </a>
+             </div>
+             <p>Meals&Miles &copy 2026 All Rights Reserved</p>
+         </footer>
+    </body>
+</html>
