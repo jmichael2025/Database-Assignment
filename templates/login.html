@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Meals&Miles</title>
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="../static/css/login.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -17,22 +17,23 @@
             <div class="nav-center">
                 <h1 class="main-heading">Meals & Miles</h1>
                 <h2>A place where you can share your meal experiences and travel stories</h2>
-                <p>Get started by logging in to your account.</p>
+   
             </div>
 
             <div class="nav-right" id= "navRight">
                 <a href="/home">Home</a>
                 <a href="/register">Register</a>
-                <a href="/login">Login</a>
-                <a href="/profile">Profile</a>
+
                 <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
-                           <i class="fa fa-bars"></i>
+                           <i class="fa fa-bars"></i> 
                 </a>
             </div>
         </nav>
          
         <section class="hero">
+            
             <div class="hero-content">
+                
                 <h2>Welcome to Meals & Miles</h2>
                 <div class="about">
                 <p>Meals & Miles is a web application designed to connect food and travel enthusiasts. 
@@ -45,19 +46,21 @@
                 <div class="container">
                     <form action="/process_login" method="post">
             
-                    <h3>Login to get started</h3>
+                    <h3>Login to your account</h3>
                 
-                        <label><b>Username:</b></label>
+                        <label><b>Username</b></label>
                         <input type="text" name="username" placeholder="Enter your username" required>
                         <br><br>
 
-                        <label><b>Password:</b></label>
+                        <label><b>Password</b></label>
                         <input type="password" name="password" placeholder="Enter your password" required>
                         </label>  
 
                         <button type="submit" class="loginbtn">Login</button>
+
                         <div id="lblError" role="alert" {{ error }} ></div>
-                        New user? <a href="/register">Register here</a>
+
+                        <button type="button" class="regbtn" onclick="window.location.href='/register'"> New user? <br>Register here</button>
                 </form>
                 </div>
             </div>
@@ -72,11 +75,10 @@
                 </a>
                 <a href="mailto:info@mealsandmiles.com" >
                 <i class="fas fa-envelope"></i>
-                </a>
-                <p>Meals&Miles &copy 2026 All Rights Reserved</p>
+                </a>   
             </div>
+            <p>Meals&Miles &copy 2026 All Rights Reserved</p>
         </footer>
-        <script src="register.js"></script>
-        <script src="login.js"></script>
+        <script src="../static/js/login.js"></script>
     </body>
 </html>
