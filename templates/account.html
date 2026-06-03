@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meals&Miles</title>
+        <link rel="stylesheet" href="../static/css/account.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <nav class="navbar">
+
+            <div class="nav-left">
+               <img src="../images/logo.png" alt="LOGO" class="logo">  
+            </div>
+
+            <div class="nav-center">
+                <h1 class="main-heading">Meals & Miles</h1>
+                <h2>A place where you can share your meal experiences and travel stories</h2>
+            </div>
+
+            <div class="nav-right" id= "navRight">
+                <a href="/home">Home</a>
+                <a href="/logout">Logout</a>
+                <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
+                           <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </nav>
+        <section class="main">
+
+    <div class="profile-container">
+
+        <div class="profile-left">
+           <img
+        src="{{ url_for('static', filename=user.profile_pic) }}"
+        
+        class="profile-pic"
+        id="profilePic">
+        
+
+        <div class="profile-actions">
+        <button class="profile-btn" onclick="document.getElementById('profileUpload').click()">
+            Upload Profile Picture
+        </button>
+
+        <input
+            type="file"
+            id="profileUpload"
+            accept="image/*"
+            onchange="previewProfilePic(event)"
+            hidden>
+        </div>
+
+    
+        </div>
+
+        <div class="profile-middle">
+
+            <h2 id="profileName">{{ user.name }}</h2>
+
+            <p>
+                <strong>Place:</strong>
+                <span id="profilePlace">{{ user.place }}</span>
+            </p>
+
+            <p>
+                <strong>Sex:</strong>
+                <span id="profileSex">{{ user.sex }}</span>
+            </p>
+
+            <p>
+                <strong>Interests:</strong>
+                <span id="profileInterests">{{ user.interests }}</span>
+            </p>
+
+            <button onclick="editProfile()">
+                Edit Profile
+                <script src="{{ url_for('static', filename='js/account.js') }}"></script>
+            </button>
+            <button onclick="createPost()">
+                Create Post
+                <script src="{{ url_for('static', filename='js/account.js') }}"></script>
+            </button>
+
+        </div>
+
+        <section class="posts-section">
+
+    <h2>My Posts</h2>
+
+    {% for post in posts %}
+
+    <div class="post-card">
+
+        <div class="post-header">
+
+            <h3>{{ post.title }}</h3>
+
+            <span class="post-category">
+                {{ post.category }}
+            </span>
+
+        </div>
+
+        <p>
+            <strong>Location:</strong>
+            {{ post.location }}
+        </p>
+
+        <p>
+            {{ post.description }}
+        </p>
+
+        <p>
+            ❤️ {{ post.likes }} Likes
+        </p>
+
+        <div class="post-actions">
+
+            <a href="/like_post/{{ post.id }}"
+               class="action-btn like-btn">
+                Like
+            </a>
+
+            <button
+                class="action-btn comment-btn"
+                onclick="toggleComment({{ post.id }})">
+                Comment
+            </button>
+
+            <a href="/delete_post/{{ post.id }}"
+               class="action-btn delete-btn">
+                Delete
+            </a>
+
+        </div>
+
+        <div
+            class="comment-box"
+            id="commentBox{{ post.id }}">
+
+            <form
+                action="/comment/{{ post.id }}"
+                method="POST">
+
+                <textarea
+                    name="comment"
+                    placeholder="Write a comment..."
+                    required></textarea>
+
+                <button type="submit">
+                    Post Comment
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+    </div>
+
+</section>
+        <footer class="footer">
+             <div class="footer-icons">
+                 <a href="https://www.facebook.com/mealsandmiles">
+                 <i class="fab fa-facebook"></i>
+                 </a>
+                 
+                 <a href="https://www.instagram.com/_meals_and_miles/">
+                 <i class="fab fa-instagram"></i>
+                 </a>
+                 <a href="mailto:info@mealsandmiles.com" target="_blank">
+                 <i class="fas fa-envelope"></i>
+                 </a>
+             </div>
+             <p>Meals&Miles &copy 2026 All Rights Reserved</p>
+         </footer>
+         
+         <script src="../static/js/login.js"></script>
+         <script src="../static/js/account.js"></script>
+    </body>
+</html>    

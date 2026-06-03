@@ -1,0 +1,370 @@
+/* general syling */
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(236, 243, 237);
+    color: black;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+/*navigation*/
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbd40d;
+  padding: 1rem 2rem;
+}
+.nav-left {
+  color: #000000;
+  font-size: 1.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  
+  object-fit: cover;
+}
+.nav-center {
+  position: static;
+  color: rgb(0, 0, 0);
+  transform: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.nav-center .main-heading {
+  font-size: 2.5rem;
+  font-family: 'verdana', sans-serif;
+  margin: 0;
+}
+
+.nav-right {
+  display: flex;     
+  gap: 20px;
+  color: #000000;
+}
+.nav-right a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.nav-right a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+nav .icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+nav-right.icon {
+  display: none;
+}
+
+
+/*account page styling*/
+
+.main {
+    padding: 30px;
+    background-image: url("../../images/background2.jpeg");
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+}
+
+.profile-container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.profile-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #dbd40d;
+}
+
+.profile-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-btn {
+    background-color: #494b2b;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.profile-btn:hover {
+    opacity: 0.9;
+}
+.profile-middle {
+    flex: 2;
+    text-align: center;
+}
+
+.profile-middle h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.profile-middle p {
+    margin: 15px 0;
+    font-size: 1rem;
+}
+
+.profile-middle button {
+    background: #494b2b;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.profile-middle button:hover {
+    opacity: 0.9;
+}
+.posts-section {
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.posts-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.post-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-category {
+    background: #dbd40d;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    text-decoration: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.like-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.comment-btn {
+    background: #2196f3;
+    color: white;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+.comment-box {
+    display: none;
+    margin-top: 15px;
+}
+
+.comment-box textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+}
+
+.comment-box button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #494b2b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+
+/* Footer */
+
+   .footer {
+        background-color: #41431193;
+        padding: 0.6rem 0.4rem;
+        height: 8%;
+        margin: 0;
+        flex: 1;
+        flex-shrink: 0;
+          }
+
+    .footer-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        }
+    .footer-icons a {
+        color:#00bcd4;
+        font-size: 1.3rem;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color:#fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        }
+
+    .footer-icons a:hover {
+        background-color: #fff;
+        transform: translateY(-3px);
+        }
+
+    .footer p {
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-center {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-right {
+        width: 100%;
+        display: block;
+        position: relative;
+    }
+
+    
+    .nav-right a:not(.icon) {
+        display: none;
+    }
+
+    
+    .nav-right .icon {
+        display: block;
+        text-align: right;
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+
+    .nav-right.responsive a:not(.icon) {
+        display: block;
+        text-align: left;
+        padding: 12px;
+        background-color: #dbd40d;
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .nav-right.responsive .icon {
+        display: none;
+    
+    }
+} 
+
+@media screen and (max-width: 768px) {
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-left {
+        width: 100%;
+    }
+
+    .profile-middle {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+@media screen and (max-width: 768px) {
+
+    .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .post-actions {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+

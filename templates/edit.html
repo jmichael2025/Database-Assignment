@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meals&Miles</title>
+        <link rel="stylesheet" href="../static/css/edit.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-left">
+               <img src="../images/logo.png" alt="LOGO" class="logo">  
+            </div>
+
+            <div class="nav-center">
+                <h1 class="main-heading">Meals & Miles</h1>
+                <h2>A place where you can share your meal experiences and travel stories</h2>
+   
+            </div>
+
+            <div class="nav-right" id= "navRight">
+                <a href="/home">Home</a>
+                <a href="/profile">Profile</a>
+                <a href="/logout">Logout</a>
+
+                <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
+                           <i class="fa fa-bars"></i> 
+                </a>
+            </div>
+        </nav>
+        <section class="main">
+
+    <div class="profile-form-container">
+
+        <h2>Edit Profile</h2>
+
+        <form action="/save_profile" method="POST">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" name="age" min="18" max="120">
+                </div>
+
+                <div class="form-group">
+                    <label>Sex</label>
+                    <select name="sex">
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Place</label>
+                    <input type="text" name="place">
+                </div>
+
+                <div class="form-group">
+                    <label>Interests</label>
+                    <input type="text" name="interests"
+                           placeholder="Travel, Food, Photography">
+                </div>
+
+                <div class="form-group">
+                    <label>Interested In</label>
+                    <input type="text" name="interested_in"
+                           placeholder="Backpacking, Hiking, Street Food">
+                </div>
+
+                <div class="form-group">
+                    <label>Favourite Place</label>
+                    <input type="text" name="favourite_place">
+                </div>
+
+                <div class="form-group">
+                    <label>Favourite Cuisine</label>
+                    <input type="text" name="favourite_cuisine">
+                </div>
+
+            </div>
+
+            <div class="form-group full-width">
+                <label>About Me</label>
+                <textarea
+                    name="about_me"
+                    rows="5"
+                    placeholder="Tell people about yourself..."></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <label>Profile Description</label>
+                <textarea
+                    name="description"
+                    rows="6"
+                    placeholder="Describe your travel and food journey..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="save-btn">
+                    Save Profile
+                </button>
+
+                <button type="button"
+                        class="cancel-btn"
+                        onclick="goBack()">
+                    Cancel
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+        
+          <footer class="footer">
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/mealsandmiles">
+                <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/_meals_and_miles/">
+                <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:info@mealsandmiles.com" >
+                <i class="fas fa-envelope"></i>
+                </a>   
+            </div>
+            <p>Meals&Miles &copy 2026 All Rights Reserved</p>
+        </footer>
+        <script src="../static/js/login.js"></script>
+        <script src="../static/js/edit.js"></script>
+    </body>
+</html

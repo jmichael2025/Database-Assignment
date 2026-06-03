@@ -1,0 +1,261 @@
+   /* general syling */
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(236, 243, 237);
+    color: black;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+/*navigation*/
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbd40d;
+  padding: 1rem 2rem;
+}
+.nav-left {
+  color: #000000;
+  font-size: 1.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nav-center {
+  position: static;
+  color: rgb(0, 0, 0);
+  transform: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.nav-center .main-heading {
+  font-size: 2.5rem;
+  font-family: 'verdana', sans-serif;
+  margin: 0;
+}
+
+.nav-right {
+  display: flex;     
+  gap: 20px;
+  color: #000000;
+}
+.nav-right a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.nav-right a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+nav .icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+nav-right.icon {
+  display: none;
+}
+
+.main {
+    padding: 30px;
+}
+
+.profile-form-container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.profile-form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.full-width {
+    margin-top: 20px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.save-btn {
+    background: #494b2b;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background:#494b2b ;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.save-btn:hover,
+.cancel-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* Footer */
+
+   .footer {
+        background-color: #41431193;
+        padding: 0.6rem 0.4rem;
+        height: 8%;
+        margin: 0;
+        flex: 1;
+        flex-shrink: 0;
+          }
+
+    .footer-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        }
+    .footer-icons a {
+        color:#00bcd4;
+        font-size: 1.3rem;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color:#fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        }
+
+    .footer-icons a:hover {
+        background-color: #fff;
+        transform: translateY(-3px);
+        }
+
+    .footer p {
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-center {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-right {
+        width: 100%;
+        display: block;
+        position: relative;
+    }
+
+    
+    .nav-right a:not(.icon) {
+        display: none;
+    }
+
+    
+    .nav-right .icon {
+        display: block;
+        text-align: right;
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+
+    .nav-right.responsive a:not(.icon) {
+        display: block;
+        text-align: left;
+        padding: 12px;
+        background-color: #dbd40d;
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .nav-right.responsive .icon {
+        display: none;
+    
+    }
+} 
+
+@media screen and (max-width: 768px) {
+
+    .profile-form-container {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .save-btn,
+    .cancel-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
