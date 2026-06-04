@@ -7,13 +7,14 @@ const passwordError = document.getElementById ("passwordError");
 const confirmError = document.getElementById ("confirmError");
 
 form.addEventListener ("submit",function (e) {
-  e.preventDefault();
+
   let valid= true;
 
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
       if(!passwordPattern.test(password.value)){
-        passwordError.textContent= "Password must be 8+ chars, include uppercase, lowercase & number";
+        passwordError.textContent= 
+        "Password must be 8+ chars, include uppercase, lowercase & number";
         passwordError.style.visibility= "visible";
         valid=false; 
       } else {
@@ -28,9 +29,8 @@ form.addEventListener ("submit",function (e) {
         confirmError.style.visibility = "hidden";
       }
       
-      if(valid)
+      if(!valid)
       {
-        alert('Registartion form validated and submitted successfully!');
-        form.reset();
+        e.preventDefault();
       }
 });

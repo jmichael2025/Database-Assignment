@@ -12,7 +12,7 @@
         <nav class="navbar">
 
             <div class="nav-left">
-               <img src="../images/logo.png" alt="LOGO" class="logo">  
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LOGO" class="logo"> 
             </div>
 
             <div class="nav-center">
@@ -36,7 +36,7 @@
                             <h2>Create an Account</h2>
                             <h3>Please fill up this form to create an account</h3>
                             <hr>
-                            <form id="signUpForm">
+                            <form method="POST" action="/register" id="signUpForm">
                                 
                             <label for="username"><b>Username</b></label>
                             <input type="text" placeholder="Enter Username" name="username" id="username" required>
