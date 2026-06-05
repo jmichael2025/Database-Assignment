@@ -21,7 +21,7 @@
             </div>
 
             <div class="nav-right" id= "navRight">
-                
+                <a href="/account">{{ current_user.username }}</a>
                 <a href="/logout">Logout</a>
                 <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
                            <i class="fa fa-bars"></i>
@@ -29,104 +29,86 @@
             </div>
         </nav>
         <section class="main">
+            
 
             <div class="profile-container">
                 <div class="profile-left">
-                <h2>Welcome, {{ current_user.username }}!</h2>
-                    <img src="{{ url_for('static', filename=current_user.profile_pic) }}" class="profile-pic"id="profilePic">
+                <h2>{{ user.username }}'s Profile</h2>
+                    <img src="{{ url_for('static', filename=user.profile_pic) }}" class="profile-pic"id="profilePic">
                     <br><br>
 
                     <form id="uploadForm" action="/upload_profile_picture" method="POST" enctype="multipart/form-data">
                     <input type="file" id="profileInput" name="profile_pic" accept="image/*"hidden>
-                    <button type="button" id="changeBtn" style="display:none;"> Change Profile Picture</button>
-                    <button type="submit" id="uploadBtn" style="display:none;">Upload Profile Picture </button>
+                
                     </form>
                     
                     <br>
                 </div>
                 <div class="profile-right">                  
 
-                        {% if not current_user.name %}
+                        {% if not user.name %}
                             <p>Please complete your profile.</p>
                         {% endif %}
 
-                        {% if current_user.name %}
-                            <p><strong>Name:</strong> {{ current_user.name }}</p>
+                        {% if user.name %}
+                            <p><strong>Name:</strong> {{ user.name }}</p>
                         {% endif %}
 
-                        {% if current_user.age %}
-                        <p><strong>Age:</strong> {{ current_user.age }}</p>
+                        {% if user.age %}
+                        <p><strong>Age:</strong> {{ user.age }}</p>
                         {% endif %}
 
-                        {% if current_user.gender %}
-                        <p><strong>Gender:</strong> {{ current_user.gender }}</p>
+                        {% if user.gender %}
+                        <p><strong>Gender:</strong> {{ user.gender }}</p>
                         {% endif %}
 
-                        {% if current_user.place %}
-                        <p><strong>Place:</strong> {{ current_user.place }}</p>
+                        {% if user.place %}
+                        <p><strong>Place:</strong> {{ user.place }}</p>
                         {% endif %}
 
-                        {% if current_user.interests %}
-                        <p><strong>Interests:</strong> {{ current_user.interests }}</p>
+                        {% if user.interests %}
+                        <p><strong>Interests:</strong> {{ user.interests }}</p>
                         {% endif %}
 
-                        {% if current_user.specify %}
-                        <p><strong>Specify:</strong> {{ current_user.specify }}</p>
+                        {% if user.specify %}
+                        <p><strong>Specify:</strong> {{ user.specify }}</p>
                         {% endif %}
 
-                        {% if current_user.cuisine %}
-                        <p><strong>Cuisine:</strong> {{ current_user.cuisine }}</p>
+                        {% if user.cuisine %}
+                        <p><strong>Cuisine:</strong> {{ user.cuisine }}</p>
                         {% endif %}
 
-                        {% if current_user.about_me %}
-                        <p><strong>About Me:</strong> {{ current_user.about_me }}</p>
+                        {% if user.about_me %}
+                        <p><strong>About Me:</strong> {{ user.about_me }}</p>
                         {% endif %}
 
-                        {% if current_user.profile_description %}
-                        <p><strong>Profile Description:</strong> {{ current_user.profile_description }}</p>
+                        {% if user.profile_description %}
+                        <p><strong>Profile Description:</strong> {{ user.profile_description }}</p>
                         {% endif %}
-                        <button class="profile-btn" onclick="window.location.href='/edit'">Edit Profile</button>
+                
                 </div>
-                <div class="community-feed">
-                    <h2>Community Feed</h2>
-                    {% for post in community_posts %}
-
-                    <div class="community-post">
-
-                        <a href="/profile/{{ post.author.id }}">
-                        <strong>{{ post.author.username }}</strong></a>
-                        <h4>{{ post.title }}</h4>
-                        <p>{{ post.content[:80] }}...</p>
-                        <p>❤️ {{ post.likes|length }} Likes</p>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+              
             
 
         <section class="posts-section" id="postsSection">
             
-            <h2>My Posts</h2>
-                <button class="profile-btn" onclick="window.location.href='/create_post'">Create New Post</button>
-            
-
-                {% for post in current_user.posts %}
+            <h2>{{ user.username }}'s Posts</h2>         
+                {% for post in user.posts %}
 
             <div class="post-card">
                 <div class="post-info">
                     <h3>{{ post.title }}</h3>
-                    <p>{{ post.content }}</p>                  
-                    <p>❤️ {{ post.likes|length }} Likes</p>
+                    <p>{{ post.content }}</p>
+                    <a href="/like_post/{{ post.id }}" class="like-btn">❤️ {{ post.likes|length }} Likes</a>
                     <h4>Comments</h4>
-                    {% if post.comments %}
                     {% for comment in post.comments %}
                     <p><strong>{{ comment.user.username }}</strong>:{{ comment.text }}</p>
                     {% endfor %}
-                    {% else %}
-                    <p>No comments yet.</p>
-                    {% endif %}
-                    <button class="edit-btn" onclick="window.location.href='/edit_post/{{ post.id }}'">Edit Post</button>
-                    <button class="delete-btn" onclick="window.location.href='/delete_post/{{ post.id }}'">Delete Post</button>
+
+                    <form action="/add_comment/{{ post.id }}" method="POST">
+                        <textarea name="comment" placeholder="Write a comment..." required></textarea>
+                        <button type="submit">Add Comment</button>
+                    </form>
                 </div>
 
             {% if post.image %}

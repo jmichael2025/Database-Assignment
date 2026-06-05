@@ -21,7 +21,7 @@
             </div>
 
             <div class="nav-right" id= "navRight">
-                <a href="/home">Home</a>
+                <a href="/login">Login</a>
                 <a href="/register">Register</a>
 
                 <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
@@ -43,6 +43,27 @@
                     Whether you're a food lover or a travel enthusiast, Meals & Miles is the perfect 
                     place to share your experiences and connect with others who share your passions.</p>
                 </div>
+                <section class="public-feed">
+
+                    <h2>Recent Food & Travel Posts</h2>
+                        {% for post in posts %}
+                        <div class="feed-post">
+                            <h3>{{ post.title }}</h3>
+                            <p><strong>Posted by:</strong> {{ post.author.username }} </p>
+                            <p>{{ post.content }}</p>
+                            {% if post.image %}
+                            <img src="{{ url_for('static', filename=post.image) }}"class="feed-image">
+                            {% endif %}
+
+                            <div class="feed-actions"> 
+                                <p>❤️ {{ post.likes|length }} Likes</p>                                                  
+                                <button disabled>💬 Comment </button>
+                                <p>Login or Register to create your own post</p>
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                </section>
                 <div class="container">
                     <form action="/process_login" method="post">
             

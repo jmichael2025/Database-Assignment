@@ -119,7 +119,33 @@ nav-right.icon {
     margin-top: 1rem;
     text-align: center;
 }
+.post-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 
+    background: white;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.1);
+}
+
+.post-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.post-info p {
+    margin-bottom: 12px;
+}
+
+.post-image img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 #imagePreview {
     display: none;
     max-width: 100%;

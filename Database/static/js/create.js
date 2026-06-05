@@ -16,10 +16,3 @@ imageInput.addEventListener("change", function () {
     }
 });
 
-document.getElementById("postForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    alert("Post submitted!");
-
-    // Later you'll send the data to Flask using fetch()
-});

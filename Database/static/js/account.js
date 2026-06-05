@@ -1,6 +1,3 @@
-function editProfile() {
-    alert("Profile editing coming soon!");
-}
 
 function previewProfilePic(event) {
     const image = document.getElementById("profilePic");
@@ -30,4 +27,27 @@ function toggleComment(postId) {
     } else {
         box.style.display = "block";
     }
+}
+
+const profilePic = document.getElementById("profilePic");
+const changeBtn = document.getElementById("changeBtn");
+const uploadBtn = document.getElementById("uploadBtn");
+const profileInput = document.getElementById("profileInput");
+
+if (profilePic) {
+
+    profilePic.addEventListener("click", function() {
+        changeBtn.style.display = "inline-block";
+    });
+
+    changeBtn.addEventListener("click", function() {
+        profileInput.click();
+    });
+
+    profileInput.addEventListener("change", function() {
+        if (profileInput.files.length > 0) {
+            uploadBtn.style.display = "inline-block";
+        }
+    });
+
 }
