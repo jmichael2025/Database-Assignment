@@ -16,12 +16,12 @@
 
             <div class="nav-center">
                 <h1 class="main-heading">Meals & Miles</h1>
-                <h2>A place where you can share your meal experiences and travel stories</h2>
+                <h2>A place where you can share your Meal Experiences and Travel Stories</h2>
    
             </div>
 
             <div class="nav-right" id= "navRight">
-                <a href="/login">Login</a>
+                <a href="#login-form">Login</a>
                 <a href="/register">Register</a>
 
                 <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
@@ -57,15 +57,20 @@
 
                             <div class="feed-actions"> 
                                 <p>❤️ {{ post.likes|length }} Likes</p>                                                  
-                                <button disabled>💬 Comment </button>
-                                <p>Login or Register to create your own post</p>
+
+                                <p> 
+                                    <a href="#login-form">Login</a>
+                                    <a href="/register">Register</a> to create your own post !
+                                </p>
                             </div>
 
                         </div>
                         {% endfor %}
                 </section>
                 <div class="container">
+                    <div id="login-form">
                     <form action="/process_login" method="post">
+                    
             
                     <h3>Login to your account</h3>
                 

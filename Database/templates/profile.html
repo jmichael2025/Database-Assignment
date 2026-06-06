@@ -22,7 +22,7 @@
 
             <div class="nav-right" id= "navRight">
                 <a href="/account">{{ current_user.username }}</a>
-                <a href="/logout">Logout</a>
+                <a href="{{ url_for('views.logout') }}">Logout</a>
                 <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
                            <i class="fa fa-bars"></i>
                 </a>
@@ -30,7 +30,7 @@
         </nav>
         <section class="main">
             
-
+            <div class="profile-page">
             <div class="profile-container">
                 <div class="profile-left">
                 <h2>{{ user.username }}'s Profile</h2>
@@ -87,7 +87,7 @@
                         {% endif %}
                 
                 </div>
-              
+            </div>
             
 
         <section class="posts-section" id="postsSection">
@@ -105,11 +105,13 @@
                     <p><strong>{{ comment.user.username }}</strong>:{{ comment.text }}</p>
                     {% endfor %}
 
-                    <form action="/add_comment/{{ post.id }}" method="POST">
+                    <form action="/add_comment/{{ post.id }}" method="POST" class="comment-form">
                         <textarea name="comment" placeholder="Write a comment..." required></textarea>
-                        <button type="submit">Add Comment</button>
+                        <br>
+                        <button type="submit" id="comment-btn">Add Comment</button>
                     </form>
                 </div>
+
 
             {% if post.image %}
             <div class="post-image">
@@ -121,6 +123,7 @@
         {% endfor %}
             
         </section>
+    </div>
             
         </section>
             <footer class="footer">

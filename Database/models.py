@@ -3,8 +3,9 @@ from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    posts = db.relationship('Post', backref='author', lazy=True)
-    comments = db.relationship('Comment',backref='user',lazy=True)
+    posts = db.relationship('Post', backref='author', lazy=True , cascade="all, delete-orphan")
+    comments = db.relationship('Comment', backref='user', lazy=True, cascade="all, delete-orphan")
+    likes = db.relationship('Like', backref='user', lazy=True, cascade="all, delete-orphan")
 
     username = db.Column( db.String(150),unique=True, nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)

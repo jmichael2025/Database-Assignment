@@ -17,12 +17,12 @@
 
             <div class="nav-center">
                 <h1 class="main-heading">Meals & Miles</h1>
-                <h2>A place where you can share your meal experiences and travel stories</h2>
+                <h2>A place where you can share your Meal experiences and Travel stories</h2>
             </div>
 
             <div class="nav-right" id= "navRight">
                 
-                <a href="/logout">Logout</a>
+                <a href="{{ url_for('views.logout') }}">Logout</a>
                 <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
                            <i class="fa fa-bars"></i>
                 </a>
@@ -86,23 +86,11 @@
                         <p><strong>Profile Description:</strong> {{ current_user.profile_description }}</p>
                         {% endif %}
                         <button class="profile-btn" onclick="window.location.href='/edit'">Edit Profile</button>
-                </div>
-                <div class="community-feed">
-                    <h2>Community Feed</h2>
-                    {% for post in community_posts %}
-
-                    <div class="community-post">
-
-                        <a href="/profile/{{ post.author.id }}">
-                        <strong>{{ post.author.username }}</strong></a>
-                        <h4>{{ post.title }}</h4>
-                        <p>{{ post.content[:80] }}...</p>
-                        <p>❤️ {{ post.likes|length }} Likes</p>
-                    </div>
-                    {% endfor %}
+                        <a href="/delete_account" class="delete-btn"
+                        onclick="return confirm('Are you sure? This will permanently delete your account and posts.')">Delete Account</a>
                 </div>
             </div>
-            
+
 
         <section class="posts-section" id="postsSection">
             
@@ -138,6 +126,21 @@
         </div>
         {% endfor %}
             
+        </section>
+                        <div class="community-feed">
+                    <h2>Community Feed</h2>
+                    {% for post in community_posts %}
+
+                    <div class="community-post">
+
+                        <a href="/profile/{{ post.author.id }}">
+                        <strong>{{ post.author.username }}</strong></a>
+                        <h4>{{ post.title }}</h4>
+                        <p>{{ post.content[:80] }}...</p>
+                        <p>❤️ {{ post.likes|length }} Likes</p>
+                    </div>
+                    {% endfor %}
+                </div>
         </section>
             
         </section>

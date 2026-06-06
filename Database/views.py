@@ -1,7 +1,7 @@
 import os
 
 from flask import Blueprint, render_template, request, redirect, url_for
-from flask_login import login_user,login_required, current_user
+from flask_login import login_user,login_required, logout_user, current_user
 from .models import User, Post, Like, Comment
 from . import db
 import os
@@ -62,19 +62,21 @@ def process_login():
 
     print(f"User found: {user}")
 
+    if not user:
+        return "This account does not exist"
+
     if user:
         print ("Stored password: ", user.password)
     
-    if user and user.password == password:
-        print ("login successful")
+    if user.password != password:
+        return "Incorrect password"
+        
+    print("login sucessful")
 
-        login_user(user)
+    login_user(user)
 
-        return redirect(url_for('views.account'))
+    return redirect(url_for('views.account'))
     
-        print("login failed")
-
-    return "Invalid username or password"
 
 
 @views.route('/account')
@@ -247,9 +249,13 @@ def delete_post(post_id):
 @views.route('/edit_post/<int:post_id>', methods=['GET', 'POST'])
 @login_required
 def edit_post(post_id):
+
     print ("Edit post route reached")
 
     post = Post.query.get_or_404(post_id)
+    print("Post ID:", post.id)
+    print("Post owner:", post.user_id)
+    print("Current user:", current_user.id)
 
     if post.user_id != current_user.id:
         return redirect(url_for('views.account'))
@@ -259,14 +265,24 @@ def edit_post(post_id):
         post.title = request.form.get('title')
         post.content = request.form.get('content')
 
+        file = request.files.get('image')
+
+        if file and file.filename != '':
+
+            filename = secure_filename(file.filename)
+
+            upload_path = os.path.join('Database','static','uploads',filename)
+
+            file.save(upload_path)
+
+            post.image = f'uploads/{filename}'
+
         db.session.commit()
 
         return redirect(url_for('views.account'))
 
-    return render_template(
-        'edit_post.html',
-        post=post
-    )
+    return render_template('edit_post.html',post=post)
+
 
 @views.route('/like_post/<int:post_id>')
 @login_required
@@ -319,3 +335,27 @@ def add_comment(post_id):
         db.session.commit()
 
     return redirect(request.referrer)
+
+@views.route('/logout')
+@login_required
+def logout():
+
+    logout_user()
+
+    return redirect(url_for('views.home'))
+
+
+@views.route('/delete_account')
+@login_required
+def delete_account():
+
+    user_id = current_user.id 
+    user = User .query.get(user_id)
+
+
+    logout_user()
+
+    db.session.delete(user)
+    db.session.commit()
+
+    return redirect('/')

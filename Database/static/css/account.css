@@ -93,8 +93,7 @@ nav-right.icon {
 }
 
 .profile-left {
-    
-    width: 40%;
+
     text-align: center;
     gap: 15px;
 }
@@ -129,6 +128,7 @@ nav-right.icon {
 }
 .profile-right{
     flex: 1;
+    background-color:rgb(234, 240, 231) ;
     
 }
 
@@ -156,19 +156,27 @@ nav-right.icon {
 }
 
 #changeBtn,
-#uploadBtn {
+#uploadBtn 
+
+{
     margin-top: 10px;
     padding: 10px 15px;
     border-radius: 6px;
     background: #494b2b;
     color: white;
 }
-.community-feed {
-    flex: 1;
+
+.community-feed{
+
+    max-width: 80%;
+    margin: 20px auto;
+
     background: white;
-    padding: 20px;
+    padding: 25px;
+
     border-radius: 12px;
-    margin-left: 20px;
+
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
 }
 
 .community-post {
@@ -258,13 +266,11 @@ nav-right.icon {
 }
 
 
-.comment-btn {
-    background: #2196f3;
-    color: white;
-}
 
 .delete-btn {
     background: #dc3545;
+    display: inline-block;
+    text-align:center;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -272,30 +278,50 @@ nav-right.icon {
     cursor: pointer;
     margin-top: 10px;
 }
+.edit-btn 
+{
+    background: #494b2b;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;}
 
 .delete-btn:hover {
     opacity: 0.9;
 }
-.comment-box {
-    display: none;
+.comment-form {
     margin-top: 15px;
 }
 
-.comment-box textarea {
-    width: 100%;
-    min-height: 80px;
-    padding: 10px;
+.comment-form textarea {
+    width: 50%;
+    min-height: 90px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: rgb(234, 240, 231);
+    box-sizing: border-box;
 }
 
-.comment-box button {
-    margin-top: 10px;
-    padding: 10px 15px;
+.comment-form button {
     background: #494b2b;
     color: white;
     border: none;
+    padding: 10px 18px;
     border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
+.comment-form button:hover {
+    opacity: 0.9;
+}
+.profile-page .posts-section {
+    margin-top: 30px;
+    width: 100%;
+    clear: both;
+}
 
 /* Footer */
 
@@ -429,4 +455,71 @@ nav-right.icon {
     }
 
 }
+@media screen and (max-width: 768px) {
 
+    .profile-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .profile-left,
+    .profile-right,
+    .community-feed {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+
+    .community-feed h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .community-post {
+        width: 100%;
+    }
+}
+    
+
+@media screen and (max-width: 768px) {
+
+    .post-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .post-image {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+@media screen and (max-width: 768px) {
+
+    .delete-btn {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
+
+}
+@media screen and (max-width: 768px) {
+
+    .profile-page .profile-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-page .posts-section {
+        width: 100%;
+        margin-top: 20px;
+        order: 3;
+    }
+
+}
