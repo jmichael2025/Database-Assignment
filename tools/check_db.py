@@ -5,4 +5,6 @@ app = create_app()
 
 with app.app_context():
     users = User.query.all()
-    print(users)
+
+    for user in users:
+        print(user.username, user.profile_pic)

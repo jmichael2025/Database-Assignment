@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 function displayHamberger() {
     const nav = document.getElementById("navRight");
     const icon = document.querySelector(".icon i");

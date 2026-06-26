@@ -1,5 +1,5 @@
 /* general syling */
-body{
+body {
     margin: 0;
     box-sizing: border-box;
     background-color: rgb(236, 243, 237);
@@ -12,61 +12,68 @@ body{
 /*navigation*/
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #dbd40d;
-  padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dbd40d;
+    padding: 1rem 2rem;
 }
+
 .nav-left {
-  color: #000000;
-  font-size: 1.5rem;
-  background-size: contain;
-  background-repeat: no-repeat;
+    color: #000000;
+    font-size: 1.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
+
 .logo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  
-  object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    object-fit: cover;
 }
+
 .nav-center {
-  position: static;
-  color: rgb(0, 0, 0);
-  transform: none;
-  width: 100%;
-  margin-top: 10px;
+    position: static;
+    color: rgb(0, 0, 0);
+    transform: none;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .nav-center .main-heading {
-  font-size: 2.5rem;
-  font-family: 'verdana', sans-serif;
-  margin: 0;
+    font-size: 2.5rem;
+    font-family: 'verdana', sans-serif;
+    margin: 0;
 }
 
 .nav-right {
-  display: flex;     
-  gap: 20px;
-  color: #000000;
+    display: flex;
+    gap: 20px;
+    color: #000000;
 }
+
 .nav-right a {
-  color: #000000;
-  text-decoration: none;
-  font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1rem;
 }
+
 .nav-right a:hover {
-  color: #000000;
-  text-decoration: underline;
+    color: #000000;
+    text-decoration: underline;
 }
+
 nav .icon {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 1001;
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
 }
+
 nav-right.icon {
-  display: none;
+    display: none;
 }
 
 
@@ -89,7 +96,7 @@ nav-right.icon {
     gap: 30px;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .profile-left {
@@ -126,10 +133,11 @@ nav-right.icon {
 .profile-btn:hover {
     opacity: 0.9;
 }
-.profile-right{
+
+.profile-right {
     flex: 1;
-    background-color:rgb(234, 240, 231) ;
-    
+    background-color: rgb(234, 240, 231);
+
 }
 
 .profile-right h2 {
@@ -156,9 +164,7 @@ nav-right.icon {
 }
 
 #changeBtn,
-#uploadBtn 
-
-{
+#uploadBtn {
     margin-top: 10px;
     padding: 10px 15px;
     border-radius: 6px;
@@ -166,8 +172,7 @@ nav-right.icon {
     color: white;
 }
 
-.community-feed{
-
+.community-feed {
     max-width: 80%;
     margin: 20px auto;
 
@@ -176,7 +181,7 @@ nav-right.icon {
 
     border-radius: 12px;
 
-    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .15);
 }
 
 .community-post {
@@ -201,7 +206,7 @@ nav-right.icon {
     background: rgb(255, 255, 255);
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .15);
     border: 1px solid #ddd;
 }
 
@@ -214,7 +219,7 @@ nav-right.icon {
     padding: 20px;
     margin-top: 15px;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
 }
 
 .post-info {
@@ -237,6 +242,7 @@ nav-right.icon {
     object-fit: cover;
     border-radius: 10px;
 }
+
 .post-actions {
     display: flex;
     gap: 10px;
@@ -251,6 +257,7 @@ nav-right.icon {
     cursor: pointer;
     border-radius: 6px;
 }
+
 .like-btn {
     display: inline-block;
     text-decoration: none;
@@ -270,7 +277,7 @@ nav-right.icon {
 .delete-btn {
     background: #dc3545;
     display: inline-block;
-    text-align:center;
+    text-align: center;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -278,18 +285,20 @@ nav-right.icon {
     cursor: pointer;
     margin-top: 10px;
 }
-.edit-btn 
-{
+
+.edit-btn {
     background: #494b2b;
     color: white;
     border: none;
     padding: 12px 20px;
     border-radius: 6px;
-    cursor: pointer;}
+    cursor: pointer;
+}
 
 .delete-btn:hover {
     opacity: 0.9;
 }
+
 .comment-form {
     margin-top: 15px;
 }
@@ -317,6 +326,7 @@ nav-right.icon {
 .comment-form button:hover {
     opacity: 0.9;
 }
+
 .profile-page .posts-section {
     margin-top: 30px;
     width: 100%;
@@ -325,45 +335,46 @@ nav-right.icon {
 
 /* Footer */
 
-   .footer {
-        background-color: #41431193;
-        padding: 0.6rem 0.4rem;
-        height: 8%;
-        margin: 0;
-        flex: 1;
-        flex-shrink: 0;
-          }
+.footer {
+    background-color: #41431193;
+    padding: 0.6rem 0.4rem;
+    height: 8%;
+    margin: 0;
+    flex: 1;
+    flex-shrink: 0;
+}
 
-    .footer-icons {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 1rem;
-        }
-    .footer-icons a {
-        color:#00bcd4;
-        font-size: 1.3rem;
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background-color:#fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        }
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
 
-    .footer-icons a:hover {
-        background-color: #fff;
-        transform: translateY(-3px);
-        }
+.footer-icons a {
+    color: #00bcd4;
+    font-size: 1.3rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
 
-    .footer p {
-        color: white;
-        font-size: 1rem;
-        text-align: center;
-    }
-    
+.footer-icons a:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer p {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
 
 /* Mobile Styles */
 @media screen and (max-width: 600px) {
@@ -383,12 +394,12 @@ nav-right.icon {
         position: relative;
     }
 
-    
+
     .nav-right a:not(.icon) {
         display: none;
     }
 
-    
+
     .nav-right .icon {
         display: block;
         text-align: right;
@@ -402,14 +413,14 @@ nav-right.icon {
         text-align: left;
         padding: 12px;
         background-color: #dbd40d;
-        border-top: 1px solid rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .nav-right.responsive .icon {
         display: none;
-    
+
     }
-} 
+}
 
 @media screen and (max-width: 768px) {
 
@@ -437,6 +448,7 @@ nav-right.icon {
         max-width: 250px;
     }
 }
+
 @media screen and (max-width: 768px) {
 
     .post-header {
@@ -455,6 +467,7 @@ nav-right.icon {
     }
 
 }
+
 @media screen and (max-width: 768px) {
 
     .profile-container {
@@ -480,7 +493,7 @@ nav-right.icon {
         width: 100%;
     }
 }
-    
+
 
 @media screen and (max-width: 768px) {
 
@@ -500,6 +513,7 @@ nav-right.icon {
     }
 
 }
+
 @media screen and (max-width: 768px) {
 
     .delete-btn {
@@ -509,6 +523,7 @@ nav-right.icon {
     }
 
 }
+
 @media screen and (max-width: 768px) {
 
     .profile-page .profile-container {

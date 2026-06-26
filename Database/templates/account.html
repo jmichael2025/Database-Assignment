@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Meals&Miles</title>
-    <link rel="stylesheet" href="../static/css/account.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -35,8 +35,11 @@
         <div class="profile-container">
             <div class="profile-left">
                 <h2>Welcome, {{ current_user.username }}!</h2>
-                <img src="{{ url_for('static', filename=current_user.profile_pic) }}" class="profile-pic"
-                    id="profilePic">
+                {% if user.profile_pic %}
+                <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}" class="profile-pic">
+                {% else %}
+                <img src="{{ url_for('static', filename='images/default.png') }}" class="profile-pic">
+                {% endif %}
                 <br><br>
 
                 <form id="uploadForm" action="/upload_profile_picture" method="POST" enctype="multipart/form-data">
@@ -111,6 +114,7 @@
                     {% if post.image %}
                     <div class="post-image">
                         <img src="{{ url_for('static', filename=post.image) }}" alt="Post Image">
+
                     </div>
                     {% endif %}
 
@@ -163,8 +167,7 @@
         </div>
         <p>Meals&Miles &copy 2026 All Rights Reserved</p>
     </footer>
-
-    <script src="../static/js/login.js"></script>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
     <script src="{{ url_for('static', filename='js/account.js') }}"></script>
 </body>
 
