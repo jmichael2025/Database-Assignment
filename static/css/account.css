@@ -69,21 +69,6 @@ nav-right.icon {
   display: none;
 }
 
-
-
-/*home page styling*
-
-.main{
-  min-height: 100vh;
-  background-image: url("../../images/background2.jpeg");
-  background-size: cover;
-  background-position: center;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  padding: 60px;
-}*/
-
 .main {
     padding: 30px;
     background-image: url("../../images/background2.jpeg");
@@ -145,69 +130,33 @@ nav-right.icon {
 .profile-middle button:hover {
     opacity: 0.9;
 }
-/*
-h1{
-  font-size: 1rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-/*profile
 
- 
-  .profile-container {
-    margin: auto;
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-
+.post-card {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
 }
 
-profile-container h2 {
+.post-info {
+    text-align: left;
+}
+
+.post-image {
+    margin: 15px 0;
     text-align: center;
-    margin-bottom: 20px;
-}
-profile-actions {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
 }
 
- 
-
-small {
-  color: red;
-  visibility: hidden;
+.post-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
 }
-
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-.Registerbtn {
-  background-color:#494b2b;;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-
-#lblError {
-  color: red;
-  text-align: center;
-  font-size: 14px;
-  margin-top: 10px;
-}*/
-
 /* Footer */
 
    .footer {
