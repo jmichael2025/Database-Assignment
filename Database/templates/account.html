@@ -84,6 +84,10 @@
                 <p><strong>Cuisine:</strong> {{ current_user.cuisine }}</p>
                 {% endif %}
 
+                {% if current_user.favourite_place %}
+                <p><b>Favourite Place:</b> {{ current_user.favourite_place }}</p>
+                {% endif %}
+
                 {% if current_user.about_me %}
                 <p><strong>About Me:</strong> {{ current_user.about_me }}</p>
                 {% endif %}
