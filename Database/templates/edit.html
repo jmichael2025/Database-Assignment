@@ -1,145 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Meals&Miles</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="{{ url_for('static', filename='images/favicon.ico') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="nav-left">
-               <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LOGO" class="logo"> 
-            </div>
 
-            <div class="nav-center">
-                <h1 class="main-heading">Meals & Miles</h1>
-                <h2>A place where you can share your Meal Experiences and Travel Stories</h2>
-   
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <title>Meals&Miles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
 
-            <div class="nav-right" id= "navRight">
-                
-                <a href="/account">{{ current_user.username }}</a>
-                <a href="{{ url_for('views.logout') }}">Logout</a>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LOGO" class="logo">
+        </div>
 
-                <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
-                           <i class="fa fa-bars"></i> 
-                </a>
-            </div>
-        </nav>
-        <section class="main">
+        <div class="nav-center">
+            <h1 class="main-heading">Meals & Miles</h1>
+            <h2>A place where you can share your Meal Experiences and Travel Stories</h2>
 
-    <div class="profile-form-container">
+        </div>
 
-        <h2>Edit Profile</h2>
+        <div class="nav-right" id="navRight">
 
-        <form action="/save_profile" method="POST">
+            <a href="/account">{{ current_user.username }}</a>
+            <a href="{{ url_for('views.logout') }}">Logout</a>
 
-            <div class="form-grid">
+            <a href="javascript:void(0);" class="icon" onclick="displayHamberger()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </nav>
+    <section class="main">
 
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name">
+        <div class="profile-form-container">
+
+            <h2>Edit Profile</h2>
+
+            <form action="/save_profile" method="POST">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" value="{{ current_user.name }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="age" min="18" max="120" value="{{ current_user.age }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select name="gender">
+                            <option value="">Select</option>
+                            <option value="Male" {% if current_user.gender== "Male" %}selected{% endif %}>
+                                Male
+                            </option>
+                            <option value="Female" {% if current_user.gender== "Female" %}selected{% endif %}>
+                                Female
+                            </option>
+
+                            <option value="Other" {% if current_user.gender== "Other" %}selected{% endif %}>
+                                Other
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Place</label>
+                        <input type="text" name="place" value="{{ current_user.place }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Interests</label>
+                        <input type="text" name="interests" placeholder="Travel, Food, Photography"
+                            value="{{ current_user.interests }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Specify</label>
+                        <input type="text" name="specify" placeholder="Backpacking, Hiking, Street Food"
+                            value="{{ current_user.specify }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Favourite Place</label>
+                        <input type="text" name="favourite_place" value="{{current_user.favourite_place}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Favourite Cuisine</label>
+                        <input type="text" name="cuisine" value="{{ current_user.cuisine }}">
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label>Age</label>
-                    <input type="number" name="age" min="18" max="120">
+                <div class="form-group full-width">
+                    <label>About Me</label>
+                    <textarea name="about_me" rows="5"
+                        placeholder="Tell people about yourself...">{{ current_user.about_me }}</textarea>
                 </div>
 
-                <div class="form-group">
-                    <label>Gender</label>
-                    <select name="gender">
-                        <option value="">Select</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
-                    </select>
+                <div class="form-group full-width">
+                    <label>Profile Description</label>
+                    <textarea name="profile_description" rows="6"
+                        placeholder="Describe your travel and food journey...">{{ current_user.profile_description }}</textarea>
                 </div>
 
-                <div class="form-group">
-                    <label>Place</label>
-                    <input type="text" name="place">
+                <div class="button-group">
+                    <button type="submit" class="save-btn">
+                        Save Profile
+                    </button>
+
+                    <button type="button" class="cancel-btn" onclick="window.location.href='/account'">
+                        Cancel
+                    </button>
                 </div>
 
-                <div class="form-group">
-                    <label>Interests</label>
-                    <input type="text" name="interests"
-                           placeholder="Travel, Food, Photography">
-                </div>
+            </form>
 
-                <div class="form-group">
-                    <label>Specify</label>
-                    <input type="text" name="specify"
-                           placeholder="Backpacking, Hiking, Street Food">
-                </div>
+        </div>
 
-                <div class="form-group">
-                    <label>Favourite Place</label>
-                    <input type="text" name="favourite_place">
-                </div>
+    </section>
 
-                <div class="form-group">
-                    <label>Favourite Cuisine</label>
-                    <input type="text" name="cuisine">
-                </div>
 
-            </div>
-
-            <div class="form-group full-width">
-                <label>About Me</label>
-                <textarea
-                    name="about_me"
-                    rows="5"
-                    placeholder="Tell people about yourself..."></textarea>
-            </div>
-
-            <div class="form-group full-width">
-                <label>Profile Description</label>
-                <textarea
-                    name="profile_description"
-                    rows="6"
-                    placeholder="Describe your travel and food journey..."></textarea>
-            </div>
-
-            <div class="button-group">
-                <button type="submit" class="save-btn">
-                    Save Profile
-                </button>
-
-                <button type="button"
-                        class="cancel-btn"
-                        onclick="window.location.href='/account'">
-                    Cancel
-                </button>
-            </div>
-
-        </form>
-
-    </div>
-
-</section>
-
-        
-          <footer class="footer">
-            <div class="footer-icons">
-                <a href="https://www.facebook.com/mealsandmiles">
+    <footer class="footer">
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/mealsandmiles">
                 <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/_meals_and_miles/">
+            </a>
+            <a href="https://www.instagram.com/_meals_and_miles/">
                 <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:info@mealsandmiles.com" >
+            </a>
+            <a href="mailto:info@mealsandmiles.com">
                 <i class="fas fa-envelope"></i>
-                </a>   
-            </div>
-            <p>Meals&Miles &copy 2026 All Rights Reserved</p>
-        </footer>
-        <script src="{{ url_for('static', filename='js/login.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/edit.js') }}"></script>
-        
-    </body>
+            </a>
+        </div>
+        <p>Meals&Miles &copy; 2026 All Rights Reserved</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/edit.js') }}"></script>
+
+</body>
+
 </html
