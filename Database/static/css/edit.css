@@ -70,6 +70,7 @@
        cursor: pointer;
        z-index: 1001;
    }
+   /* container */
 
    .main {
        padding: 30px;
@@ -171,11 +172,19 @@
    .cancel-btn:hover {
        opacity: 0.9;
    }
+   
+   .edit-post {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/*footer*/
 
-   /* Footer */
-
-   .footer {
-       background-color: #41431193;
+.footer {
+    background-color: #41431193;
        padding: 0.6rem 0.4rem;
        height: 8%;
        margin: 0;

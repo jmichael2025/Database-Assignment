@@ -55,10 +55,16 @@
                     <img id="imagePreview" alt="Image preview">
 
                 </div>
-                <button type="button" class="cancel-btn"
-                    onclick="window.location.href='{{ url_for('views.account') }}';">
-                    Cancel
-                </button>
+                <div class="button-group">
+                    <button type="submit" class="submit-btn">
+                        Create Post
+                    </button>
+
+                    <button type="button" class="cancel-btn"
+                        onclick="window.location.href='/account';">
+                        Cancel
+                    </button>
+                </div>
 
             </form>
 
