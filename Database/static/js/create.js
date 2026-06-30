@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const imageInput = document.getElementById("image");
 const imagePreview = document.getElementById("imagePreview");
 

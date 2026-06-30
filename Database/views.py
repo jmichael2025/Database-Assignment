@@ -125,8 +125,10 @@ def save_profile():
         current_user.place = request.form.get('place')
         current_user.interests = request.form.get('interests')
         current_user.cuisine = request.form.get('cuisine')
+        current_user.favourite_place = request.form.get('favourite_place')
         current_user.about_me = request.form.get('about_me')
         current_user.profile_description = request.form.get('profile_description')
+        
         current_user.specify = request.form.get('specify')
 
         #debug prints
@@ -137,8 +139,10 @@ def save_profile():
         print(f"Interests: {current_user.interests}")
         print(f"Specify: {current_user.specify}")
         print(f"Cuisine: {current_user.cuisine}")
+        print(f"Favourite Place: {current_user.favourite_place}")
         print(f"About Me: {current_user.about_me}")
         print(f"Profile Description: {current_user.profile_description}")
+        
 
         db.session.commit()
 

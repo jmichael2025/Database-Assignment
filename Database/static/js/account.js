@@ -1,4 +1,4 @@
-
+/* jshint esversion: 6 */
 function previewProfilePic(event) {
     const image = document.getElementById("profilePic");
 

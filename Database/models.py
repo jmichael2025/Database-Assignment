@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
     interests = db.Column(db.String(300))
     specify = db.Column(db.String(300))
     cuisine = db.Column(db.String(100))
+    favourite_place = db.Column(db.String(150))
     about_me = db.Column(db.Text)
     profile_description = db.Column(db.Text)
 
