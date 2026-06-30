@@ -117,7 +117,21 @@ nav-right.icon {
 
 .image-preview-container {
     margin-top: 1rem;
+    text-align: center;}
+
+.current-image-preview {
+    width:100%;
     text-align: center;
+    margin-top: 15px;
+}
+.current-image {
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px auto 20px auto;
+    display: block;
+    
 }
 .post-card {
     display: flex;
@@ -152,9 +166,11 @@ nav-right.icon {
     max-height: 300px;
     border-radius: 10px;
     object-fit: cover;
+    margin :15px auto 0;
 }
 
-.submit-btn {
+.submit-btn 
+.cancel-btn{
     width: 50%;
     padding: 14px;
     border: none;
@@ -165,8 +181,8 @@ nav-right.icon {
     color: white;
     transition: 0.3s;
 }
-
-.submit-btn:hover {
+.submit-btn:hover 
+.cancel-btn:hover{
     opacity: 0.9;
 }
 

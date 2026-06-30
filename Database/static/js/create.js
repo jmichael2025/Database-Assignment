@@ -14,6 +14,9 @@ imageInput.addEventListener("change", function () {
         };
 
         reader.readAsDataURL(file);
+    } else {
+        imagePreview.src = "";
+        imagePreview.style.display = "none";
     }
 });
 
