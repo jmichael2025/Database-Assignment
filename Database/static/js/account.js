@@ -39,15 +39,15 @@ const profileInput = document.getElementById("profileInput");
 
 if (profilePic) {
 
-    profilePic.addEventListener("click", function() {
+    profilePic.addEventListener("click", function () {
         changeBtn.style.display = "inline-block";
     });
 
-    changeBtn.addEventListener("click", function() {
+    changeBtn.addEventListener("click", function () {
         profileInput.click();
     });
 
-    profileInput.addEventListener("change", function() {
+    profileInput.addEventListener("change", function () {
         if (profileInput.files.length > 0) {
             uploadBtn.style.display = "inline-block";
         }

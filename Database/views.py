@@ -55,23 +55,25 @@ def process_login():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    print("Username entered:, username}")
-    print ("Password entered:, password")
-
     user = User.query.filter_by(username=username).first()
 
     print(f"User found: {user}")
 
     if not user:
-        return "This account does not exist"
+        posts = Post.query.order_by(Post.id.desc()).all()
+        return render_template(
+            "login.html",
+            posts=posts,
+            error="This account does not Exist.")
 
-    if user:
-        print ("Stored password: ", user.password)
     
     if user.password != password:
-        return "Incorrect password"
+        posts = Post.query.order_by(Post.id.desc()).all()
+        return render_template(
+            "login.html",
+            posts=posts,
+            error="Incorrect password")
         
-    print("login sucessful")
 
     login_user(user)
 
@@ -79,7 +81,7 @@ def process_login():
     
 
 
-@views.route('/account')
+@views.route('/account') 
 @login_required
 def account():
 

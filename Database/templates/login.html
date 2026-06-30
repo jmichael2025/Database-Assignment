@@ -84,14 +84,12 @@
 
                         <label><b>Password</b></label>
                         <input type="password" name="password" placeholder="Enter your password" required>
-                        </label>
-
-                        <button type="submit" class="loginbtn">Login</button>
-                        {% if error %}
+                        {% if error %}                 
                         <div id="lblError" role="alert">
                         {{ error }}
                         </div>
                         {% endif %}
+                        <button type="submit" class="loginbtn">Login</button>  
                         <button type="button" class="regbtn" onclick="window.location.href='/register'"> New user?
                             <br>Register here</button>
                     </form>
