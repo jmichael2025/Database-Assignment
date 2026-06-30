@@ -29,7 +29,10 @@ function toggleComment(postId) {
     }
 }
 
+//const profilePic = document.getElementById("profilePic");
 const profilePic = document.getElementById("profilePic");
+console.log(profilePic);
+
 const changeBtn = document.getElementById("changeBtn");
 const uploadBtn = document.getElementById("uploadBtn");
 const profileInput = document.getElementById("profileInput");

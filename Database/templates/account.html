@@ -35,10 +35,10 @@
         <div class="profile-container">
             <div class="profile-left">
                 <h2>Welcome, {{ current_user.username }}!</h2>
-                {% if user.profile_pic %}
-                <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}" class="profile-pic">
+                {% if current_user.profile_pic %}
+                <img src="{{ url_for('static', filename=current_user.profile_pic) }}" class="profile-pic "id="profilePic"  >
                 {% else %}
-                <img src="{{ url_for('static', filename='images/default.png') }}" class="profile-pic">
+                <img src="{{ url_for('static', filename='images/default.png') }}" class="profile-pic" id="profilePic" >
                 {% endif %}
                 <br><br>
 
