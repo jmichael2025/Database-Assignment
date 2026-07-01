@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, flash, render_template, request, redirect, url_for
 from flask_login import login_user,login_required, logout_user, current_user
 from .models import User, Post, Like, Comment
 from . import db
@@ -35,9 +35,12 @@ def register():
         db.session.add(new_user)
         db.session.commit()
 
-        return redirect(url_for('views.home'))
-    return render_template('register.html')
+        login_user(new_user)
 
+        flash("Account created successfully!", category="success")
+        return redirect(url_for("views.account"))
+    return render_template("register.html")
+    
 @views.route('/users')
 def users():
 
