@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 import os
 from .models import Post
 
-import Database
+import database
 
 views = Blueprint('views', __name__)
 
@@ -172,7 +172,7 @@ def upload_profile_picture():
     filename = secure_filename(file.filename)
 
     upload_path = os.path.join(
-        'Database',
+        'database',
         'static',
         'uploads',
         filename
@@ -217,7 +217,7 @@ def create_post():
             filename = secure_filename(file.filename)
 
             upload_path = os.path.join(
-                'Database',
+                'database',
                 'static',
                 'uploads',
                 filename
@@ -280,7 +280,7 @@ def edit_post(post_id):
 
             filename = secure_filename(file.filename)
 
-            upload_path = os.path.join('Database','static','uploads',filename)
+            upload_path = os.path.join('database','static','uploads',filename)
 
             file.save(upload_path)
 
