@@ -1,15 +1,11 @@
 import os
 
-from flask import Blueprint, flash, render_template, request, redirect, url_for
+from flask import Blueprint, flash, render_template, request, redirect, url_for, current_app
 from flask_login import login_user,login_required, logout_user, current_user
+from werkzeug.utils import secure_filename
+
 from .models import User, Post, Like, Comment
 from . import db
-import os
-from werkzeug.utils import secure_filename
-import os
-from .models import Post
-
-import database
 
 views = Blueprint('views', __name__)
 
@@ -102,7 +98,7 @@ def account():
     
 
 
-@views.route('/edit')
+@views.route('/edit', methods=['GET', 'POST'])
 @login_required
 def edit():
     if request.method == 'POST':
@@ -151,11 +147,6 @@ def save_profile():
 
         return redirect(url_for('views.account'))
     
-    @views.route('/cancel_edit')
-    @login_required
-    def cancel_edit():
-     return redirect(url_for('views.account'))
-
 
 @views.route('/upload_profile_picture', methods=['POST'])
 @login_required
@@ -172,11 +163,11 @@ def upload_profile_picture():
     filename = secure_filename(file.filename)
 
     upload_path = os.path.join(
-        'database',
+        current_app.root_path,
         'static',
         'uploads',
         filename
-    )
+)
 
     file.save(upload_path)
 
@@ -217,11 +208,11 @@ def create_post():
             filename = secure_filename(file.filename)
 
             upload_path = os.path.join(
-                'database',
+                current_app.root_path,
                 'static',
                 'uploads',
                 filename
-            )
+      )
 
             file.save(upload_path)
 
@@ -279,8 +270,11 @@ def edit_post(post_id):
         if file and file.filename != '':
 
             filename = secure_filename(file.filename)
-
-            upload_path = os.path.join('database','static','uploads',filename)
+            upload_path = os.path.join(
+                current_app.root_path,
+                'static',
+                'uploads',
+                filename)
 
             file.save(upload_path)
 
@@ -359,7 +353,7 @@ def logout():
 def delete_account():
 
     user_id = current_user.id 
-    user = User .query.get(user_id)
+    user = User.query.get(user_id)
 
 
     logout_user()
@@ -367,4 +361,9 @@ def delete_account():
     db.session.delete(user)
     db.session.commit()
 
-    return redirect('/')
+    return redirect(url_for('views.home'))
+
+@views.route('/cancel_edit')
+@login_required
+def cancel_edit():
+     return redirect(url_for('views.account'))
