@@ -28,40 +28,32 @@ Meals & Miles is a Flask-based web application that allows users to share their 
 
 ## Project Structure
 
-```
-Meals-Miles/
-│
-├── Database/
-│   ├── __init__.py
-│   ├── models.py
-│   ├── views.py
-│   └── ...
-│
-├── static/
-│   ├── css/
-│   ├── js/
-│   ├── images/
-│   └── uploads/
-│
-├── templates/
-│
-├── main.py
-├── requirements.txt
-└── README.md
-```
+Database-Assignment/ 
+│ 
+├── app.py 
+├── requirements.txt 
+├── README.md 
+├── database/ 
+│ ├── __init__.py 
+│ ├── models.py 
+│ ├── views.py 
+│ ├── static/ 
+│ |── templates/ 
+├── migrations/ 
+└── instance/
 
 ## Installation
 
 1. Clone the repository.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/jmichael2025/Database-Assignment.git
 ```
 
 2. Navigate to the project folder.
 
 ```bash
-cd Meals-Miles
+cd Database-Assignment
 ```
 
 3. Create a virtual environment.
@@ -93,7 +85,7 @@ pip install -r requirements.txt
 6. Run the application.
 
 ```bash
-python main.py
+python app.py
 ```
 
 The application will be available at:
@@ -115,11 +107,11 @@ pip install -r requirements.txt
 ### Start Command
 
 ```text
-gunicorn main:app
+gunicorn app:app
 ```
 
 ## Author
-
+Jasmin Michael
 Developed as part of a Database/Web Development assignment.
 
 ## License
