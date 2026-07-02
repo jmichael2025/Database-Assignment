@@ -109,6 +109,27 @@ pip install -r requirements.txt
 ```text
 gunicorn app:app
 ```
+## Testing / Evaluation
+
+To fully evaluate the functionality of the web application, please register a new account by creating a unique username, email address, and password. Once logged in, test all available features of the application by completing the following actions:
+
+* Register a new account.
+* Log in using the registered account.
+* Upload or change your profile picture.
+* Add and edit your profile details.
+* Save profile changes.
+* Cancel profile editing.
+* Create a new post (with and without an image).
+* Edit an existing post.
+* Delete a post.
+* View your own profile.
+* View other users' profiles.
+* Like a post.
+* Add comments to posts.
+* Log out of the application.
+* Delete your account.
+
+For a complete evaluation, please interact with all buttons, forms, and navigation options available throughout the application to verify that each feature functions correctly.
 
 ## Author
 Jasmin Michael
